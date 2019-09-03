@@ -54,10 +54,10 @@ LeNet architecture is used in the deep learning model:
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32 x 32 x 3 RGB image   							| 
 | Convolution (conv1)  	| 1x1 stride, same padding, outputs 28 x 28 x 6  	|
-| Max pooling (pool1)   	| 2x2 stride,  outputs 14 x 14 x 6 				|
-| Convolution (cov2)	    | 1x1 stride, same padding, outputs 10 x 10 x 16 |
-| Max pooling (pool2)		| 2x2 stride,  outputs 5 x 5 x 16         		|
-| Fully connected (layer3~5)				| outputs 120 --> 84 --> 43        			|
+| Max pooling (sub2)   	| 2x2 stride,  outputs 14 x 14 x 6 				|
+| Convolution (conv3)	    | 1x1 stride, same padding, outputs 10 x 10 x 16 |
+| Max pooling (sub4)		| 2x2 stride,  outputs 5 x 5 x 16         		|
+| Fully connected 				| outputs 120 --> 84 --> 43        			|
 | Softmax						|												|
 
  
@@ -108,10 +108,10 @@ They are chosen in order to check if the model can clasify traffic signs with di
 Below is some more elabrations on how the addiional images are chosen:
 
 - **01.jpg (Priority raod):** it is a less common color compared to most of the signs. There is also a relative strong line features in the background. It is used to check if the background will increase any interference. 
-- 02.png (Yield): It is more like a base line as I expect this should be easier to identified as the backgournd is clean and sign feature is simple and clean. 
-- **03.png (Ahead only):** In my early model with less prediction accuracy, the classifier is mixing it with the turn right ahead. I use this image as the output for "Visualizing the Neural Network" section. I noticed that because of the low resoution of the image, the old model will somehow recongize some noisy sigal on the right side of arrow head. That makes the image to be recongized as turn right ahead. The issues is gone after the precition accuracy is improved.
-- **04.png (Beware of ice/snow):** There is a complicated symble on the sign while the image resolution is low. It turnes out the model failed on this most of the time. I did quite a few runs with the same model, sometimes the model can get it right. I think how the model recongize the features is somewhat related to the training sequence since the onlyh thing different in each run should be just the training image sequence. 
-- **05.jpg (Stop):** The background is noisy.   
+- **02.png (Yield)**: It is a base line image as I expect this should be easier to identified as the backgournd is clean and sign feature is simple. 
+- **03.png (Ahead only):** In my early model with less prediction accuracy, the classifier is mixing it with the "turn right ahead". I use this image as the output for "Visualizing the Neural Network" section. I noticed that because of the low resoution of the image, the old model will somehow recongize some noisy sigal on the right side of arrow head. That makes the image to be recongized as turn right ahead. The issues is gone after the precition accuracy is improved.
+- **04.png (Beware of ice/snow):** There is a complicated symbol on the sign while the image resolution is low. It turnes out the model failed on this most of the time. I did quite a few runs with the same model, sometimes the model can get it right. I think how the model recongize the features is somewhat related to the training sequence since the only difference in each run I notice is the training image sequence. 
+- **05.jpg (Stop):** The background is noisy. 
 
 ![pic5](READMEimage/pic5_NewImage.png)
 
